@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.aisunia.com)",
+      "WebFetch(domain:www.colordic.org)",
+      "Bash(git:*)",
+      "Bash(gh:*)"
+    ]
+  }
+}

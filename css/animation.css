@@ -1,0 +1,44 @@
+/* ========================================
+   Scroll Animations
+   ======================================== */
+.fade-in,
+.fade-up {
+  opacity: 0;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in { transform: none; }
+.fade-up  { transform: translateY(24px); }
+
+.fade-in.is-visible,
+.fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Delay helpers */
+.delay-1 { transition-delay: 0.12s; }
+.delay-2 { transition-delay: 0.24s; }
+.delay-3 { transition-delay: 0.36s; }
+
+/* ========================================
+   Scroll Line (Hero)
+   ======================================== */
+@keyframes scrollLine {
+  0%   { transform: scaleY(0); transform-origin: top; opacity: 1; }
+  50%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
+  51%  { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+}
+
+/* ========================================
+   Reduced Motion
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in, .fade-up {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .hero__scroll-line { animation: none; }
+}
