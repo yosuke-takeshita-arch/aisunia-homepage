@@ -24,6 +24,7 @@
           <li><a href="#about">私たちについて</a></li>
           <li><a href="#service">サービス</a></li>
           <li><a href="#flow">支援の流れ</a></li>
+          <li><a href="#works">制作事例</a></li>
           <li><a href="#news">お知らせ</a></li>
           <li><a href="#contact" class="btn btn--outline-white">お問い合わせ</a></li>
         </ul>
@@ -215,6 +216,78 @@
     </div>
   </section>
 
+  <!-- ========== WORKS ========== -->
+  <section class="works section section--gray" id="works" aria-labelledby="works-title">
+    <div class="container">
+      <div class="section-header fade-up">
+        <p class="section-label">Works</p>
+        <h2 class="section-title" id="works-title">制作事例</h2>
+        <p class="section-desc">Claudeを活用して実際に開発したシステムをご紹介します。</p>
+      </div>
+      <div class="works-card fade-up">
+        <div class="works-card__body">
+          <div class="works-card__tags">
+            <span class="works-tag">業務自動化</span>
+            <span class="works-tag">Claude API</span>
+            <span class="works-tag">MEO対策</span>
+            <span class="works-tag works-tag--status">プロトタイプ完成</span>
+          </div>
+          <h3 class="works-card__title">Googleマップ口コミ<br>自動返信システム</h3>
+          <p class="works-card__desc">
+            Googleマップに届く口コミをClaudeが自動で分析し、感情をポジティブ・ネガティブ・ニュートラルに分類。
+            それぞれのトーンに合った返信文案を生成し、週次レポートまで自動出力するシステムです。
+            口コミ対応の工数を大幅に削減し、返信品質を均一化できます。
+          </p>
+          <ul class="works-card__features">
+            <li>口コミのポジ/ネガ/ニュートラル自動分類</li>
+            <li>Claude APIによる返信文案の自動生成</li>
+            <li>ネガティブ口コミの改善ポイント抽出</li>
+            <li>週次サマリレポートのMarkdown自動出力</li>
+          </ul>
+          <div class="works-card__actions">
+            <a href="https://note.com/chusho_yosuke/n/n8e85dbc05c35" target="_blank" rel="noopener noreferrer" class="btn btn--primary">note記事で詳細を見る</a>
+            <a href="#contact" class="btn btn--outline">このシステムを導入したい</a>
+          </div>
+        </div>
+        <div class="works-card__preview" aria-hidden="true">
+          <div class="works-preview">
+            <div class="works-preview__bar">
+              <span class="works-preview__dot"></span>
+              <span class="works-preview__dot"></span>
+              <span class="works-preview__dot"></span>
+              <span class="works-preview__filename">report_2026-04-15.md</span>
+            </div>
+            <div class="works-preview__content">
+              <p class="works-preview__heading">今週のサマリ</p>
+              <div class="works-preview__stats">
+                <div class="works-preview__stat works-preview__stat--pos">
+                  <span class="works-preview__num">5</span>
+                  <span class="works-preview__label">ポジティブ</span>
+                </div>
+                <div class="works-preview__stat works-preview__stat--neg">
+                  <span class="works-preview__num">4</span>
+                  <span class="works-preview__label">ネガティブ</span>
+                </div>
+                <div class="works-preview__stat works-preview__stat--neu">
+                  <span class="works-preview__num">1</span>
+                  <span class="works-preview__label">ニュートラル</span>
+                </div>
+              </div>
+              <div class="works-preview__review">
+                <p class="works-preview__stars">★★★★★</p>
+                <p class="works-preview__review-text">料理がとても美味しく、スタッフの対応も丁寧で感動しました！</p>
+              </div>
+              <div class="works-preview__reply">
+                <p class="works-preview__reply-label">AI 返信文案</p>
+                <p class="works-preview__reply-text">パスタが絶品だったと言っていただけてとてもうれしいです！シェフも喜ぶと思います。またのご来店をお待ちしております。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ========== NEWS ========== -->
   <section class="news section section--gray" id="news" aria-labelledby="news-title">
     <div class="container">
@@ -226,17 +299,17 @@
         <li class="news__item">
           <time class="news__date" datetime="2026-04-11">2026.04.11</time>
           <span class="news__tag">お知らせ</span>
-          <a href="#" class="news__link">Aisunia ウェブサイトをリニューアルしました</a>
+          <span class="news__link">Aisunia ウェブサイトをリニューアルしました</span>
         </li>
         <li class="news__item">
           <time class="news__date" datetime="2026-03-01">2026.03.01</time>
           <span class="news__tag">お知らせ</span>
-          <a href="#" class="news__link">Claude活用コンサルサービスの提供を開始しました</a>
+          <span class="news__link">Claude活用コンサルサービスの提供を開始しました</span>
         </li>
         <li class="news__item">
           <time class="news__date" datetime="2026-01-01">2026.01.01</time>
           <span class="news__tag">実績</span>
-          <a href="#" class="news__link">税理士法人A社の業務自動化プロジェクトを開始しました</a>
+          <span class="news__link">税理士法人A社の業務自動化プロジェクトを開始しました</span>
         </li>
       </ul>
     </div>
@@ -264,8 +337,8 @@
           <input type="email" id="email" name="email" class="form-input" required autocomplete="email" placeholder="example@aisunia.com">
         </div>
         <div class="form-group">
-          <label for="service" class="form-label">ご関心のあるサービス</label>
-          <select id="service" name="service" class="form-select">
+          <label for="serviceSelect" class="form-label">ご関心のあるサービス</label>
+          <select id="serviceSelect" name="service" class="form-select">
             <option value="">選択してください</option>
             <option value="claude">Claudeコンサル</option>
             <option value="dx">DXコンサル</option>
