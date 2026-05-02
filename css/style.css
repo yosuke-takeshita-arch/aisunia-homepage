@@ -2,15 +2,18 @@
    CSS Custom Properties
    ======================================== */
 :root {
-  --color-red:       #BC002D;
-  --color-red-dark:  #960024;
-  --color-navy:      #1A2B4A;
-  --color-navy-dark: #111e33;
-  --color-white:     #FFFFFF;
-  --color-gray:      #F5F5F5;
-  --color-gray-mid:  #E0E0E0;
-  --color-text:      #1A1A1A;
-  --color-text-sub:  #555555;
+  --color-red:        #BC002D;
+  --color-red-dark:   #960024;
+  --color-navy:       #1A2B4A;
+  --color-navy-dark:  #111e33;
+  --color-slate:      #5C7A99;  /* スレートブルー（パワポD案と統一） */
+  --color-slate-dark: #3D5C7A;
+  --color-slate-soft: #7A8FA6;
+  --color-white:      #FFFFFF;
+  --color-gray:       #F5F5F5;
+  --color-gray-mid:   #E0E0E0;
+  --color-text:       #1A1A1A;
+  --color-text-sub:   #555555;
 
   --font-main: 'Noto Sans JP', sans-serif;
 
@@ -57,33 +60,46 @@ ul, ol { list-style: none; }
   padding: 0 var(--container-pad);
 }
 
-.text-red { color: var(--color-red); }
+.text-red   { color: var(--color-red); }
+.text-slate { color: var(--color-slate); }
 
 .section {
-  padding: clamp(60px, 8vw, 100px) 0;
+  padding: clamp(80px, 12vw, 140px) 0;  /* ミニマル路線：余白を大幅拡大 */
 }
 
 .section--gray { background: var(--color-gray); }
 
 .section-header {
   text-align: center;
-  margin-bottom: clamp(40px, 6vw, 64px);
+  margin-bottom: clamp(56px, 8vw, 88px);
+  position: relative;
+}
+
+/* セクションヘッダー上に細いスレートブルーの区切り線（アクセント） */
+.section-header::before {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--color-slate);
+  margin: 0 auto 24px;
 }
 
 .section-label {
   font-size: 0.75rem;
-  letter-spacing: 0.15em;
-  color: var(--color-red);
+  letter-spacing: 0.25em;  /* ミニマル路線：トラッキング広め */
+  color: var(--color-slate);  /* 赤 → スレートブルーへ（落ち着き） */
   font-weight: 700;
   text-transform: uppercase;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 .section-title {
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-size: clamp(1.8rem, 3.6vw, 2.6rem);  /* タイポ拡大 */
   font-weight: 900;
   color: var(--color-navy);
-  line-height: 1.3;
+  line-height: 1.25;
+  letter-spacing: -0.01em;  /* タイトに締めて引き締め */
   margin-bottom: 16px;
 }
 
@@ -221,38 +237,40 @@ ul, ol { list-style: none; }
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 60% 60% at 80% 50%, rgba(188,0,45,0.18) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 60% at 10% 80%, rgba(26,43,74,0.8) 0%, transparent 60%);
+    radial-gradient(ellipse 55% 60% at 85% 45%, rgba(188,0,45,0.22) 0%, transparent 70%),
+    radial-gradient(ellipse 45% 55% at 15% 85%, rgba(92,122,153,0.32) 0%, transparent 65%);
 }
 
 .hero__inner {
   position: relative;
   z-index: 1;
-  max-width: 700px;
+  max-width: 880px;  /* ミニマル路線：横幅広めでタイポを伸ばす */
 }
 
 .hero__eyebrow {
-  font-size: 0.8rem;
-  letter-spacing: 0.15em;
-  color: var(--color-red);
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;  /* トラッキング広めで洗練 */
+  color: var(--color-slate-soft);  /* 赤 → 明スレートで落ち着き */
   font-weight: 700;
   text-transform: uppercase;
-  margin-bottom: 16px;
-}
-
-.hero__title {
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  font-weight: 900;
-  color: var(--color-white);
-  line-height: 1.25;
   margin-bottom: 24px;
 }
 
+.hero__title {
+  font-size: clamp(2.4rem, 6.5vw, 4.4rem);  /* タイポを大幅拡大（A方向の核） */
+  font-weight: 900;
+  color: var(--color-white);
+  line-height: 1.18;
+  letter-spacing: -0.015em;  /* タイトに締める */
+  margin-bottom: 32px;
+}
+
 .hero__desc {
-  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
-  color: rgba(255,255,255,0.8);
-  margin-bottom: 40px;
-  line-height: 1.9;
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  color: rgba(255,255,255,0.78);
+  margin-bottom: 48px;
+  line-height: 1.95;
+  max-width: 640px;
 }
 
 .hero__actions {
@@ -911,85 +929,3 @@ ul, ol { list-style: none; }
   .footer__inner { flex-direction: column; }
 }
 
-/* ========================================
-   Section Decorations（日の出モチーフ × 幾何学パターン）
-   ABOUT・SERVICE に控えめな背景演出を追加
-   ======================================== */
-.about,
-.service {
-  position: relative;
-  overflow: hidden;
-}
-
-.about > .container,
-.service > .container {
-  position: relative;
-  z-index: 1;
-}
-
-/* ABOUT：右上の日の出半円グラデ + 左下の幾何学リング */
-.about::before {
-  content: "";
-  position: absolute;
-  top: -180px;
-  right: -120px;
-  width: 520px;
-  height: 520px;
-  border-radius: 50%;
-  background: radial-gradient(circle at center,
-              rgba(188, 0, 45, 0.22) 0%,
-              rgba(188, 0, 45, 0.10) 45%,
-              rgba(188, 0, 45, 0) 75%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.about::after {
-  content: "";
-  position: absolute;
-  bottom: -100px;
-  left: -80px;
-  width: 320px;
-  height: 320px;
-  border: 3px solid rgba(26, 43, 74, 0.16);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* SERVICE：右上の幾何学リング + 左下の薄赤グラデ */
-.service::before {
-  content: "";
-  position: absolute;
-  top: 40px;
-  right: -120px;
-  width: 460px;
-  height: 460px;
-  border: 3px solid rgba(26, 43, 74, 0.17);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.service::after {
-  content: "";
-  position: absolute;
-  bottom: -140px;
-  left: 3%;
-  width: 320px;
-  height: 320px;
-  background: radial-gradient(circle,
-              rgba(188, 0, 45, 0.18) 0%,
-              rgba(188, 0, 45, 0) 70%);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* モバイルは控えめに */
-@media (max-width: 768px) {
-  .about::before  { width: 320px; height: 320px; top: -120px; right: -90px; }
-  .about::after   { width: 200px; height: 200px; bottom: -70px; left: -60px; border-width: 2px; }
-  .service::before { width: 300px; height: 300px; top: 30px; right: -100px; border-width: 2px; }
-  .service::after  { width: 200px; height: 200px; bottom: -100px; }
-}
