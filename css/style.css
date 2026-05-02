@@ -910,3 +910,86 @@ ul, ol { list-style: none; }
 
   .footer__inner { flex-direction: column; }
 }
+
+/* ========================================
+   Section Decorations（日の出モチーフ × 幾何学パターン）
+   ABOUT・SERVICE に控えめな背景演出を追加
+   ======================================== */
+.about,
+.service {
+  position: relative;
+  overflow: hidden;
+}
+
+.about > .container,
+.service > .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ABOUT：右上の日の出半円グラデ + 左下の幾何学円 */
+.about::before {
+  content: "";
+  position: absolute;
+  top: -260px;
+  right: -180px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center,
+              rgba(188, 0, 45, 0.10) 0%,
+              rgba(188, 0, 45, 0.04) 45%,
+              rgba(188, 0, 45, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.about::after {
+  content: "";
+  position: absolute;
+  bottom: -140px;
+  left: -110px;
+  width: 340px;
+  height: 340px;
+  border: 2px solid rgba(26, 43, 74, 0.07);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* SERVICE：右上の幾何学リング + 左下の薄赤グラデ */
+.service::before {
+  content: "";
+  position: absolute;
+  top: 60px;
+  right: -160px;
+  width: 500px;
+  height: 500px;
+  border: 2px solid rgba(26, 43, 74, 0.08);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.service::after {
+  content: "";
+  position: absolute;
+  bottom: -180px;
+  left: 4%;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle,
+              rgba(188, 0, 45, 0.08) 0%,
+              rgba(188, 0, 45, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* モバイルは控えめに */
+@media (max-width: 768px) {
+  .about::before  { width: 360px; height: 360px; top: -160px; right: -120px; }
+  .about::after   { width: 200px; height: 200px; bottom: -80px; left: -70px; }
+  .service::before { width: 320px; height: 320px; top: 40px; right: -110px; }
+  .service::after  { width: 200px; height: 200px; bottom: -110px; }
+}
