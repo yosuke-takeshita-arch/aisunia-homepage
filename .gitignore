@@ -1,0 +1,6 @@
+# Claude Codeのローカル権限設定（個人環境用・追跡しない）
+.claude/settings.local.json
+
+# ブランド素材（別管理）
+images/Aisunia_ロゴ_白.png
+tools/
