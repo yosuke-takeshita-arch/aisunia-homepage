@@ -5,7 +5,7 @@
 - **GitHubリポジトリ**：`yosuke-takeshita-arch/aisunia-homepage`
   - ローカルフォルダ名は `homepage-builder`（リポジトリ名と異なるので注意）
 - **ホスティング**：GitHub Pages（設定済み・稼働中）
-- **公開URL**：`https://aisunia.com/`（カスタムドメイン・DNS切り替え済み）
+- **公開URL**：`https://www.aisunia.com/`（カスタムドメイン・DNS切り替え済み）
 - **デプロイ方法**：`git push origin master` するだけで自動反映
 - **コンタクトフォーム**：Formspree実装済み（`js/main.js` 59行目）
   - エンドポイント：`https://formspree.io/f/mvzveqaz`
