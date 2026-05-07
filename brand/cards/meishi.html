@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aisunia 名刺デザイン</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #d0d0d0;
+      font-family: 'Noto Sans JP', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 48px;
+      padding: 48px 20px;
+    }
+
+    h2 {
+      color: #444;
+      font-size: 13px;
+      font-weight: 400;
+      margin-bottom: 6px;
+      text-align: center;
+      letter-spacing: 0.1em;
+    }
+
+    .card-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ============================
+       名刺サイズ: 91mm × 55mm
+       表示は px/mm = 4 換算
+    ============================ */
+    .card {
+      width: 364px;
+      height: 220px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+      border-radius: 2px;
+    }
+
+    /* ============================
+       表面
+    ============================ */
+    .front {
+      background: #FFFFFF;
+    }
+
+    /* 右下の赤グラデーション装飾 */
+    .front-deco {
+      position: absolute;
+      right: -30px;
+      bottom: -30px;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle at 70% 70%, rgba(188,0,45,0.13) 0%, rgba(188,0,45,0.04) 60%, transparent 80%);
+      pointer-events: none;
+    }
+
+    /* 左の赤縦アクセントライン */
+    .front-left-line {
+      position: absolute;
+      left: 0; top: 0;
+      width: 3px; height: 100%;
+      background: #BC002D;
+    }
+
+    /* 下部の赤帯 */
+    .front-footer {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 38px;
+      background: #BC002D;
+      display: flex;
+      align-items: center;
+      padding: 0 14px 0 14px;
+      gap: 8px;
+    }
+
+    .front-footer-name {
+      font-size: 9px;
+      font-weight: 700;
+      color: #FFFFFF;
+      letter-spacing: 0.12em;
+    }
+
+    .front-footer-sep {
+      width: 1px;
+      height: 14px;
+      background: rgba(255,255,255,0.45);
+    }
+
+    .front-footer-url {
+      font-size: 8px;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 0.04em;
+    }
+
+    .front-logo {
+      position: absolute;
+      top: 16px;
+      left: 14px;
+      height: 38px;
+    }
+
+    .front-role {
+      position: absolute;
+      top: 68px;
+      left: 18px;
+      font-size: 7.5px;
+      color: #888;
+      letter-spacing: 0.1em;
+      font-weight: 400;
+    }
+
+    .front-name-ja {
+      position: absolute;
+      top: 80px;
+      left: 16px;
+      font-size: 26px;
+      font-weight: 700;
+      color: #1A2B4A;
+      letter-spacing: 0.18em;
+    }
+
+    .front-titles {
+      position: absolute;
+      top: 118px;
+      left: 18px;
+      font-size: 7.5px;
+      color: #BC002D;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      line-height: 1.7;
+    }
+
+    .front-contact {
+      position: absolute;
+      bottom: 50px;
+      left: 18px;
+      font-size: 7.5px;
+      color: #444;
+      line-height: 2.0;
+      letter-spacing: 0.03em;
+    }
+
+    /* ============================
+       裏面
+    ============================ */
+    .back {
+      background: #FFFFFF;
+    }
+
+    /* 上部の紺ヘッダー */
+    .back-header {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 52px;
+      background: #1A2B4A;
+    }
+
+    /* ヘッダー下の赤ライン */
+    .back-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2.5px;
+      background: #BC002D;
+    }
+
+    .back-logo {
+      position: absolute;
+      top: 8px;
+      left: 14px;
+      height: 34px;
+      filter: brightness(0) invert(1);
+    }
+
+    /* 右の赤縦アクセント */
+    .back-right-line {
+      position: absolute;
+      right: 0; top: 0;
+      width: 3px; height: 100%;
+      background: #BC002D;
+    }
+
+    /* サービスエリア */
+    /* 顔写真 */
+    .back-photo {
+      position: absolute;
+      top: 62px;
+      right: 16px;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 12%;
+      border: 2px solid #BC002D;
+    }
+
+    .back-service-area {
+      position: absolute;
+      top: 64px;
+      left: 18px;
+      right: 108px;
+    }
+
+    .back-service-label {
+      font-size: 6.5px;
+      color: #BC002D;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      margin-bottom: 8px;
+    }
+
+    .back-service-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 7px;
+    }
+
+    .back-service-icon {
+      width: 20px;
+      height: 20px;
+      background: #1A2B4A;
+      border-radius: 3px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .back-service-icon span {
+      font-size: 10px;
+      color: #FFFFFF;
+      line-height: 1;
+    }
+
+    .back-service-text {
+      font-size: 9px;
+      color: #1A2B4A;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .back-service-sub {
+      font-size: 6.5px;
+      color: #888;
+      font-weight: 400;
+      margin-top: 1px;
+      letter-spacing: 0.02em;
+    }
+
+    /* 区切り線 */
+    .back-divider {
+      position: absolute;
+      bottom: 42px;
+      left: 18px;
+      right: 14px;
+      height: 1px;
+      background: #eee;
+    }
+
+    .back-catch {
+      position: absolute;
+      bottom: 20px;
+      left: 18px;
+      right: 14px;
+      font-size: 7px;
+      color: #666;
+      line-height: 1.7;
+      letter-spacing: 0.04em;
+    }
+
+    /* ============================
+       印刷スタイル
+    ============================ */
+    @media print {
+      body {
+        background: white;
+        padding: 10mm;
+        gap: 10mm;
+      }
+      h2 { display: none; }
+      .card {
+        width: 91mm;
+        height: 55mm;
+        box-shadow: none;
+        border-radius: 0;
+        page-break-inside: avoid;
+      }
+      .front-logo { height: 9.5mm; }
+      .back-logo { height: 8.5mm; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card-wrapper">
+    <h2>表面（オモテ）</h2>
+    <div class="card front">
+      <div class="front-left-line"></div>
+      <div class="front-deco"></div>
+
+      <img class="front-logo" src="../logos/Aisunia_ロゴ.png" alt="Aisunia">
+
+      <div class="front-name-ja">竹下　陽介</div>
+      <div class="front-titles">
+        中小企業診断士<br>
+        ITストラテジスト
+      </div>
+
+      <div class="front-contact">
+        TEL : 090-1163-5475<br>
+        yosuke-takeshita@aisunia.com
+      </div>
+
+      <div class="front-footer">
+        <span class="front-footer-name">アイサニア・コンサルティング</span>
+        <div class="front-footer-sep"></div>
+        <span class="front-footer-url">https://www.aisunia.com/</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-wrapper">
+    <h2>裏面（ウラ）</h2>
+    <div class="card back">
+      <div class="back-header"></div>
+      <img class="back-logo" src="../logos/Aisunia_ロゴ.png" alt="Aisunia">
+      <div class="back-right-line"></div>
+
+      <img class="back-photo" src="../../images/IMG_5056.jpg" alt="竹下陽介">
+
+      <div class="back-service-area">
+        <div class="back-service-label">— SERVICE —</div>
+
+        <div class="back-service-item">
+          <div class="back-service-icon"><span>✦</span></div>
+          <div>
+            <div class="back-service-text">freee × AI自動化</div>
+            <div class="back-service-sub">経理・労務・請求書を丸ごと自動化</div>
+          </div>
+        </div>
+
+        <div class="back-service-item">
+          <div class="back-service-icon"><span>✦</span></div>
+          <div>
+            <div class="back-service-text">Claude活用コンサル</div>
+            <div class="back-service-sub">AI業務組み込みの戦略・設計支援</div>
+          </div>
+        </div>
+
+        <div class="back-service-item">
+          <div class="back-service-icon"><span>✦</span></div>
+          <div>
+            <div class="back-service-text">DX伴走支援</div>
+            <div class="back-service-sub">診断から実行まで丁寧に伴走</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="back-divider"></div>
+
+      <div class="back-catch">
+        AI時代の中小企業に、信頼できるITパートナーを。
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
