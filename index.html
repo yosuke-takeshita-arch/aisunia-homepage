@@ -46,8 +46,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=20260502c">
-  <link rel="stylesheet" href="css/animation.css?v=20260502c">
+  <link rel="stylesheet" href="css/style.css?v=20260526a">
+  <link rel="stylesheet" href="css/animation.css?v=20260526a">
 </head>
 <body>
 
@@ -94,6 +94,58 @@
     <div class="hero__scroll-hint" aria-hidden="true">
       <span>SCROLL</span>
       <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ========== FEATURED (freee公式LP掲載) ==========
+       骨組みのみ・hidden で非表示。
+       2026/6/5 公開当日にやること：
+         1. <section> から hidden 属性を削除
+         2. 各 TODO[6/5] コメント箇所を実コンテンツに差し替え
+         3. ヘッダー/フッターのナビゲーションに「#featured」へのリンクを追加（任意）
+  -->
+  <section class="featured section section--gray" id="featured" aria-labelledby="featured-title" hidden>
+    <div class="container">
+      <div class="section-header fade-up">
+        <p class="section-label">Featured</p>
+        <h2 class="section-title" id="featured-title">公式LP掲載</h2>
+        <p class="section-desc">freee × AI 総合トップページに、ユーザーの声として掲載されました。</p>
+      </div>
+
+      <article class="featured__card fade-up">
+        <header class="featured__brand">
+          <p class="featured__brand-label">Featured on</p>
+          <p class="featured__brand-name">freee 公式LP</p>
+          <!-- TODO[6/5]: freee側から提供される素材があればロゴ画像に差し替え。なければテキストのままでOK -->
+        </header>
+
+        <blockquote class="featured__quote">
+          <!-- TODO[6/5]: 掲載が確定したXポスト本文を最終確定して記入 -->
+          <p class="featured__quote-text">freeeがAIとの付き合い方に本気出してきてるのが分かりますな。</p>
+          <footer class="featured__quote-author">
+            <span class="featured__quote-name">中小企業診断士 / AIコンサルタント　竹下 陽介</span>
+            <a href="https://x.com/yosuke_chusho" target="_blank" rel="noopener noreferrer" class="featured__quote-handle">@yosuke_chusho</a>
+          </footer>
+        </blockquote>
+
+        <dl class="featured__meta">
+          <div class="featured__meta-item">
+            <dt class="featured__meta-label">掲載先</dt>
+            <dd class="featured__meta-value">freee × AI 総合トップページ</dd>
+          </div>
+          <div class="featured__meta-item">
+            <dt class="featured__meta-label">公開日</dt>
+            <dd class="featured__meta-value">
+              <time datetime="2026-06-05">2026年6月5日（金）</time>
+            </dd>
+          </div>
+        </dl>
+
+        <div class="featured__actions">
+          <!-- TODO[6/5]: 公開後、freee公式LPのURLを確定したら href に設定 -->
+          <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn--primary">freee公式LPで見る</a>
+        </div>
+      </article>
     </div>
   </section>
 
@@ -333,6 +385,12 @@
         <h2 class="section-title" id="news-title">お知らせ</h2>
       </div>
       <ul class="news__list fade-up">
+        <!-- TODO[6/5]: hidden 属性を削除して公開（文言は実掲載確認後に最終調整） -->
+        <li class="news__item" hidden>
+          <time class="news__date" datetime="2026-06-05">2026.06.05</time>
+          <span class="news__tag news__tag--featured">掲載</span>
+          <span class="news__link">freee公式LPに「ユーザーの声」として掲載されました</span>
+        </li>
         <li class="news__item">
           <time class="news__date" datetime="2026-04-11">2026.04.11</time>
           <span class="news__tag">お知らせ</span>
@@ -427,6 +485,7 @@
             <li><a href="#flow">支援の流れ</a></li>
             <li><a href="#news">お知らせ</a></li>
             <li><a href="#contact">お問い合わせ</a></li>
+            <li><a href="privacy.html">プライバシーポリシー</a></li>
           </ul>
         </nav>
       </div>

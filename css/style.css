@@ -493,6 +493,110 @@ ul, ol { list-style: none; }
 }
 
 /* ========================================
+   Featured (freee公式LP掲載)
+   ======================================== */
+.featured__card {
+  max-width: 760px;
+  margin: 0 auto;
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: clamp(32px, 5vw, 56px);
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.featured__brand {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--color-gray-mid);
+}
+
+.featured__brand-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  color: var(--color-slate);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.featured__brand-name {
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: var(--color-navy);
+}
+
+.featured__quote {
+  border-left: 3px solid var(--color-red);
+  padding: 6px 0 6px 20px;
+}
+
+.featured__quote-text {
+  font-size: clamp(1rem, 2vw, 1.18rem);
+  font-weight: 700;
+  color: var(--color-navy);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.featured__quote-author {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  align-items: baseline;
+}
+
+.featured__quote-name {
+  font-size: 0.85rem;
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.featured__quote-handle {
+  font-size: 0.8rem;
+  color: var(--color-slate);
+  transition: color var(--transition);
+}
+
+.featured__quote-handle:hover { color: var(--color-red); }
+
+.featured__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 40px;
+}
+
+.featured__meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.featured__meta-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--color-slate);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.featured__meta-value {
+  font-size: 0.9rem;
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.featured__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ========================================
    Works
    ======================================== */
 .works-card {
@@ -736,6 +840,11 @@ ul, ol { list-style: none; }
   padding: 2px 8px;
   white-space: nowrap;
   flex-shrink: 0;
+}
+
+.news__tag--featured {
+  color: var(--color-white);
+  background: var(--color-red);
 }
 
 .news__link {
