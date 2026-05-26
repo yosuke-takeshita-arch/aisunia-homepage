@@ -929,3 +929,217 @@ ul, ol { list-style: none; }
   .footer__inner { flex-direction: column; }
 }
 
+/* ========================================
+   Legal page (Privacy Policy 等)
+   ======================================== */
+.page-legal .header {
+  background: var(--color-navy);
+  position: sticky;
+  top: 0;
+}
+
+.legal-hero {
+  background: var(--color-navy);
+  color: var(--color-white);
+  padding: clamp(64px, 10vw, 120px) 0 clamp(48px, 7vw, 80px);
+  border-bottom: 4px solid var(--color-red);
+}
+
+.legal-hero__eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  color: var(--color-slate-soft);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.legal-hero__title {
+  font-size: clamp(1.8rem, 4.2vw, 2.8rem);
+  font-weight: 900;
+  line-height: 1.4;
+  margin-bottom: 24px;
+}
+
+.legal-hero__desc {
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: #cfd6df;
+  max-width: 760px;
+}
+
+.legal-hero__desc a {
+  color: var(--color-white);
+  text-decoration: underline;
+}
+
+.legal.section {
+  padding: clamp(56px, 8vw, 96px) 0;
+}
+
+.legal-content {
+  max-width: 820px;
+}
+
+.legal-block {
+  margin-bottom: clamp(40px, 5vw, 56px);
+}
+
+.legal-block__title {
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  font-weight: 700;
+  color: var(--color-navy);
+  margin-bottom: 20px;
+  padding-left: 14px;
+  border-left: 3px solid var(--color-red);
+  line-height: 1.4;
+}
+
+.legal-block__subtitle {
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  margin: 28px 0 12px;
+}
+
+.legal-block p {
+  font-size: 0.95rem;
+  line-height: 1.95;
+  color: var(--color-text);
+  margin-bottom: 14px;
+}
+
+.legal-block p a {
+  color: var(--color-red);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.legal-block p a:hover { color: var(--color-red-dark); }
+
+.legal-list {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 16px;
+}
+
+.legal-list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: var(--color-text);
+}
+
+.legal-list li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 0.85em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-slate);
+}
+
+.legal-deflist {
+  border-top: 1px solid var(--color-gray-mid);
+  margin: 8px 0 4px;
+}
+
+.legal-deflist__row {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 16px;
+  padding: 14px 4px;
+  border-bottom: 1px solid var(--color-gray-mid);
+}
+
+.legal-deflist__row dt {
+  font-weight: 700;
+  color: var(--color-navy);
+  font-size: 0.92rem;
+}
+
+.legal-deflist__row dd {
+  font-size: 0.95rem;
+  color: var(--color-text);
+  line-height: 1.8;
+}
+
+.legal-deflist__row dd a {
+  color: var(--color-red);
+  text-decoration: underline;
+}
+
+.legal-table-wrap {
+  overflow-x: auto;
+  margin: 16px 0;
+}
+
+.legal-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  min-width: 520px;
+}
+
+.legal-table th,
+.legal-table td {
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--color-gray-mid);
+  line-height: 1.7;
+  vertical-align: top;
+}
+
+.legal-table thead th {
+  background: var(--color-navy);
+  color: var(--color-white);
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  border-bottom: none;
+}
+
+.legal-table tbody tr:nth-child(even) td {
+  background: #fafbfc;
+}
+
+.legal-note {
+  font-size: 0.85rem;
+  color: var(--color-text-sub);
+  margin-top: 12px;
+  padding: 12px 14px;
+  background: var(--color-gray);
+  border-left: 3px solid var(--color-slate);
+  line-height: 1.8;
+}
+
+.legal-revision {
+  margin-top: clamp(40px, 6vw, 64px);
+  padding-top: 24px;
+  border-top: 1px solid var(--color-gray-mid);
+  text-align: right;
+  font-size: 0.9rem;
+  color: var(--color-text-sub);
+}
+
+.legal-back {
+  margin-top: 40px;
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  .legal-deflist__row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 12px 4px;
+  }
+  .legal-deflist__row dt {
+    color: var(--color-slate);
+    font-size: 0.82rem;
+  }
+}
+

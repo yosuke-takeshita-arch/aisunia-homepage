@@ -420,7 +420,7 @@ def slide_end(prs):
     add_logo_white(slide, (W - logo_w) / 2, Inches(3.9), logo_h)
 
     # 連絡先
-    add_textbox(slide, "アイサニア・コンサルティング　｜　中小企業診断士 × freee × AI自動化",
+    add_textbox(slide, "Aisunia　｜　中小企業診断士 × freee × AI自動化",
                 Inches(0.9), Inches(5.15), W - Inches(1.25), Inches(0.5),
                 13, color=LBLUE, align=PP_ALIGN.CENTER)
 
